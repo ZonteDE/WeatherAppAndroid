@@ -17,7 +17,7 @@ fun Buttons() {
             .background(Color.Yellow)
     ) {
         Button(onClick = { }) {
-            Text("test")
+            Text("test2")
         }
     }
 }
