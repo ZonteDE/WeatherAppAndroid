@@ -28,7 +28,7 @@ fun ScreenView() {
          Box(modifier = Modifier                    //    Text: Weather
              .offset( x = 11.dp, y = 100.dp)) {
              Text(text = "Weather", fontSize = 30.sp,
-                 color = Color.Red) }
+                 color = Color.White) }
         Box {                                       //      Button: Munich
             Button(onClick = { },
                 modifier = Modifier
