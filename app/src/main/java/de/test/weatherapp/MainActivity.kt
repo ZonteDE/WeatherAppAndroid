@@ -12,7 +12,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.key.Key.Companion.F
 import androidx.compose.ui.tooling.preview.Preview
-import de.test.weatherapp.ui.theme.Buttons
+
+import de.test.weatherapp.ui.theme.ScreenView
 import de.test.weatherapp.ui.theme.WeatherAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -21,7 +22,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             WeatherAppTheme {
-                Buttons()
+                ScreenView()
             }
         }
     }
