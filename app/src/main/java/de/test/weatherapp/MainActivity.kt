@@ -12,7 +12,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.key.Key.Companion.F
 import androidx.compose.ui.tooling.preview.Preview
-
+import androidx.navigation.NavHost
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import de.test.weatherapp.ui.theme.ScreenMunich
 import de.test.weatherapp.ui.theme.ScreenView
 import de.test.weatherapp.ui.theme.WeatherAppTheme
 
@@ -21,9 +25,19 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            WeatherAppTheme {
-                ScreenView()
+            //WeatherAppTheme {
+                //ScreenView()
+                val navController = rememberNavController()
+                NavHost(navController= navController , startDestination =  "screen_View", builder = {
+                    composable("screen_View") {
+                        ScreenView(navController)
+                    }
+                    composable("screen_Munich") {
+                        ScreenMunich()
+                    }
+
+                })
             }
         }
     }
-}
+
