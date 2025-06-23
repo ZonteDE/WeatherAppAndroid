@@ -1,31 +1,36 @@
 package de.test.weatherapp.ui.theme
 
-import android.health.connect.datatypes.units.Temperature
-import androidx.compose.runtime.Composable
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 
-interface MunichApi {
-    @Get("/v1/forecast?latitude=48.16&longitude=11.53&hourly=temperature_2m&timezone=auto")
-    suspend fun getMunich() : MunichItem
-}
-
-data class MunichItem(
-    val temperature_2m: Int
-)
-
-class Munich() {
-
-    private val api = Retrofit.Builder()
-        .baseUrl("https://api.open-meteo.com")
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
-        .create(TodoApiService::class.java)
-}
 
 @Composable
-fun ScreenMunich(){
+fun ScreenMunich() {
+    var temperature by remember { mutableStateOf<Double?>(null) }
+    var rain by remember { mutableStateOf<Double?>(null) }
 
+    LaunchedEffect(Unit) {
+        val data = MunichRetrofit.loadWeather()
+        data?.let {
+            val currentHour = java.util.Calendar.getInstance().get(java.util.Calendar.HOUR_OF_DAY)
+            temperature = it.hourly.temperatures[currentHour]
+            rain = it.hourly.precipitation[currentHour]
+        }
+    }
 
+    Column(modifier = Modifier.padding(16.dp)) {
+        Text("Wetter in München", style = MaterialTheme.typography.titleLarge)
 
+        Spacer(modifier = Modifier.height(12.dp))
+
+        if (temperature != null && rain != null) {
+            Text("Temperatur: ${temperature}°C")
+            Text("Regen: ${rain} mm")
+        } else {
+            Text("Lade Wetterdaten...")
+        }
+    }
 }
