@@ -1,4 +1,4 @@
-package de.test.weatherapp.ui.theme
+package de.test.weatherapp.ui.theme.API
 
 import com.google.gson.annotations.SerializedName
 

@@ -1,4 +1,4 @@
-package de.test.weatherapp.ui.theme
+package de.test.weatherapp.ui.theme.API
 
 import retrofit2.http.GET
 import retrofit2.http.Query

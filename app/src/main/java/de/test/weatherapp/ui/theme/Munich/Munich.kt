@@ -1,14 +1,15 @@
-package de.test.weatherapp.ui.theme
+package de.test.weatherapp.ui.theme.Munich
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 
 
 @Composable
-fun ScreenMunich() {
+fun ScreenMunich(navController: NavController) {
     var temperature by remember { mutableStateOf<Double?>(null) }
     var rain by remember { mutableStateOf<Double?>(null) }
 
@@ -32,5 +33,8 @@ fun ScreenMunich() {
         } else {
             Text("Lade Wetterdaten...")
         }
+        Button(onClick = {
+            navController.popBackStack()
+        }) { Text("Zurück") }
     }
 }

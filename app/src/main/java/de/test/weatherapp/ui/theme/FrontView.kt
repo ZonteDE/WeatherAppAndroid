@@ -59,7 +59,9 @@ fun ScreenView(navController: NavController) {
         }
         Box {                                       //      Button: Berlin
             Button(
-                onClick = { },
+                onClick = {
+                    navController.navigate("screen_Berlin")
+                },
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Color(0xFF64B5F6)),
                 modifier = Modifier
@@ -73,7 +75,9 @@ fun ScreenView(navController: NavController) {
         }
         Box {                                       //      Button: Karlsruhe
             Button(
-                onClick = { },
+                onClick = {
+                    navController.navigate("screen_Karlsruhe")
+                },
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Color(0xFF64B5F6)),
                 modifier = Modifier

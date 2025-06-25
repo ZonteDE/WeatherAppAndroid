@@ -1,11 +1,12 @@
-package de.test.weatherapp.ui.theme
+package de.test.weatherapp.ui.theme.Karlsruhe
 
 import android.util.Log
+import de.test.weatherapp.ui.theme.API.WeatherApi
+import de.test.weatherapp.ui.theme.API.WeatherResponse
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-object MunichRetrofit {
-
+object KarlsruheRetorfit {
     private val retrofit = Retrofit.Builder()
         .baseUrl("https://api.open-meteo.com/v1/")
         .addConverterFactory(GsonConverterFactory.create())
@@ -17,7 +18,7 @@ object MunichRetrofit {
         return try {
             api.getWeather(48.14, 11.58)
         } catch (e: Exception) {
-            Log.e("MunichRetrofit", "Fehler beim Laden: ${e.message}")
+            Log.e("KarlsruheRetrofit", "Fehler beim Laden: ${e.message}")
             null
         }
     }
