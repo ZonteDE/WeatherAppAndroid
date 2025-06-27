@@ -4,12 +4,17 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import de.test.weatherapp.ui.theme.BerlinViewModel
 import de.test.weatherapp.ui.theme.Karlsruhe.ScreenKarlsruhe
+import de.test.weatherapp.ui.theme.KarlsruheViewModel
 import de.test.weatherapp.ui.theme.berlin.ScreenBerlin
 import de.test.weatherapp.ui.theme.Munich.ScreenMunich
+import de.test.weatherapp.ui.theme.MunichViewModel
 import de.test.weatherapp.ui.theme.ScreenView
 
 class MainActivity : ComponentActivity() {
@@ -25,17 +30,19 @@ class MainActivity : ComponentActivity() {
                         ScreenView(navController)
                     }
                     composable("screen_Munich") {
-                        ScreenMunich(navController)
+                        val vm: MunichViewModel = viewModel()
+                        ScreenMunich(navController, vm)
                     }
                     composable("screen_Berlin") {
-                        ScreenBerlin(navController)
+                        val vm: BerlinViewModel = viewModel()
+                        ScreenBerlin(navController, vm)
                     }
                     composable("screen_Karlsruhe") {
-                        ScreenKarlsruhe(navController)
+                        val vm : KarlsruheViewModel = viewModel()
+                        ScreenKarlsruhe(navController, vm)
                     }
-
                 })
-            }
         }
     }
+}
 

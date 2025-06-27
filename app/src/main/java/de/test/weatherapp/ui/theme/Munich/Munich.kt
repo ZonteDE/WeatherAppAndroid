@@ -6,10 +6,14 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import de.test.weatherapp.ui.theme.MunichViewModel
 
 
 @Composable
-fun ScreenMunich(navController: NavController) {
+fun ScreenMunich(
+    navController: NavController,
+    viewModel: MunichViewModel
+) {
     var temperature by remember { mutableStateOf<Double?>(null) }
     var rain by remember { mutableStateOf<Double?>(null) }
 

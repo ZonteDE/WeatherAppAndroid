@@ -16,10 +16,14 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
+import de.test.weatherapp.ui.theme.BerlinViewModel
 
 
 @Composable
-fun ScreenBerlin(navController: NavController) {
+fun ScreenBerlin(
+    navController: NavController,
+    viewModel: BerlinViewModel
+) {
     var temperature by remember { mutableStateOf<Double?>(null) }
     var rain by remember { mutableStateOf<Double?>(null) }
 

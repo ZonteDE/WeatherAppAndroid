@@ -16,7 +16,7 @@ object KarlsruheRetorfit {
 
     suspend fun loadWeather(): WeatherResponse? {
         return try {
-            api.getWeather(48.14, 11.58)
+            api.getWeather(49.01, 8.40)
         } catch (e: Exception) {
             Log.e("KarlsruheRetrofit", "Fehler beim Laden: ${e.message}")
             null

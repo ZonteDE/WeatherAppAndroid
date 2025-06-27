@@ -17,7 +17,7 @@ object BerlinRetrofit {
 
     suspend fun loadWeather(): WeatherResponse? {
         return try {
-            api.getWeather(48.14, 11.58)
+            api.getWeather(52.52, 13.40)
         } catch (e: Exception) {
             Log.e("BerlinRetrofit", "Fehler beim Laden: ${e.message}")
             null
