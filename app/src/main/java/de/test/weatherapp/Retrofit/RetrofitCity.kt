@@ -19,7 +19,7 @@ object WeatherRetrofit {
         return try {
             api.getWeather(latitude, longitude)
         } catch (e: Exception) {
-            Log.e("MunichRetrofit", "Fehler beim Laden: ${e.message}")
+            Log.e("WeatherRetrofit", "Fehler beim Laden: ${e.message}")
             null
         }
     }
