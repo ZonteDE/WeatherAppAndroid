@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import de.test.weatherapp.screens.CompassView
 import de.test.weatherapp.screens.ScreenCityWeather
 import de.test.weatherapp.screens.ScreenView
 
@@ -16,10 +17,11 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             val navController = rememberNavController()
-            NavHost(navController = navController, startDestination = "screen_View") {
+            NavHost(navController = navController, startDestination = "CompassView") {
 
-                composable("screen_View") {
-                    ScreenView(navController)
+                composable("CompassView") {
+                    CompassView(navController = navController)
+
                 }
 
                 composable("screen_Munich") {
